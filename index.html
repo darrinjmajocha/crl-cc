@@ -70,12 +70,12 @@
 
     .title {
       font-weight: 700;
-      font-size: 18px;
+      font-size: 20px;
       margin: 0 0 8px 0;
       line-height: 1.2;
     }
     .when {
-      font-size: 15.75px;
+      font-size: 17px;
       color: var(--muted);
       display: flex;
       gap: 10px;
@@ -126,20 +126,20 @@
 
   <script>
     const events = [
-      { title: "EDGE: Get Ready for the Semester", date: "1/15", time: "6:00–7:00 PM" },
-      { title: "Chill & Connect", date: "1/22", time: "6:00–7:30 PM" },
-      { title: "Campus Clash: Kart Collision", date: "1/24", time: "6:00–8:00 PM" },
-      { title: "Chill & Connect: Knit Your Way to Resilience", date: "2/2", time: "3:30-5:00 PM" },
-      { title: "Campus Clash: Smash Showdown", date: "2/14", time: "6:00–8:00 PM" },
-      { title: "Taco Bout' Feelings", date: "2/18", time: "5:00–6:30 PM" },
-      { title: "Trivia Night with UWP", date: "2/24", time: "6:00–7:30 PM" },
-      { title: "CLCE - Create for a Cause", date: "2/25", time: "6:00–7:00 PM" },
-      { title: "Academic Advising", date: "3/3", time: "5:30–7:00 PM" },
-      { title: "Don't Rely on Luck: Sleep Smarter", date: "3/17", time: "6:00–7:30 PM" },
-      { title: "Campus Clash: Tournament of Champions", date: "3/28", time: "6:00–8:00 PM" },
-      { title: "Humans v. Zombies", date: "4/9", time: "5:00–7:00 PM" },
-      { title: "EDGE: Finals Prep", date: "4/14", time: "6:00–7:00 PM" },
-      { title: "Finals Survival Night", date: "4/28", time: "6:00–8:00 PM" },
+      { title: "EDGE: Get Ready for the Semester", date: "1/15", time: "6:00–7:00 PM", location: "AO55" },
+      { title: "Chill & Connect", date: "1/22", time: "6:00–7:30 PM", location: "DSP 1250" },
+      { title: "Campus Clash: Kart Collision", date: "1/24", time: "6:00–8:00 PM", location: "RITchies" },
+      { title: "Chill & Connect: Knit Your Way to Resilience", date: "2/2", time: "3:30–5:00 PM", location: "DSP 1250" },
+      { title: "Campus Clash: Smash Showdown", date: "2/14", time: "6:00–8:00 PM", location: "RITchies" },
+      { title: "Taco Bout' Feelings", date: "2/18", time: "5:00–6:30 PM", location: "DSP 1250" },
+      { title: "Trivia Night with UWP", date: "2/24", time: "6:00–7:30 PM", location: "DSP 1250" },
+      { title: "CLCE - Create for a Cause", date: "2/25", time: "6:00–7:00 PM", location: "DSP 1250" },
+      { title: "Academic Advising", date: "3/3", time: "5:30–7:00 PM", location: "DSP 1250" },
+      { title: "Don't Rely on Luck: Sleep Smarter", date: "3/17", time: "6:00–7:30 PM", location: "DSP 1250" },
+      { title: "Campus Clash: Tournament of Champions", date: "3/28", time: "6:00–8:00 PM", location: "RITchies" },
+      { title: "Humans v. Zombies", date: "4/9", time: "5:00–7:00 PM", location: "Club Practice Field 2 (Quidditch Field)" },
+      { title: "EDGE: Finals Prep", date: "4/14", time: "6:00–7:00 PM", location: "DSP 1250" },
+      { title: "Finals Survival Night", date: "4/28", time: "6:00–8:00 PM", location: "DSP 1250" },
     ];
 
     const grid = document.getElementById('grid');
@@ -150,7 +150,7 @@
       const card = document.createElement('div');
       card.className = 'card';
       card.tabIndex = 0;
-      card.title = `${ev.title} — ${ev.date}, ${ev.time}`;
+      card.title = `${ev.title} — ${ev.date}, ${ev.time} • ${ev.location}`;
 
       const title = document.createElement('div');
       title.className = 'title';
@@ -169,6 +169,12 @@
 
       when.appendChild(d);
       when.appendChild(t);
+
+      const l = document.createElement('span');
+      l.className = 'label';
+      l.textContent = ev.location;
+
+      when.appendChild(l);
       card.appendChild(title);
       card.appendChild(when);
       grid.appendChild(card);
